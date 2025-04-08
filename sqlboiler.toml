@@ -1,0 +1,23 @@
+[mysql]
+  dbname   = "etools_demo"
+  host     = "127.0.0.1"
+  port     = 3306
+  user     = "root"
+  pass = "root"
+  pkgname = "models"
+  output  = "./scr/models"
+  sslmode = "false"
+  # Gera apenas a tabela empresa
+  include = ["empresa"] 
+
+[struct_tag]
+  json = true  # Gera tags JSON
+  additional = ["db"]  # Adiciona tags para o pacote database/sql
+
+[generation]
+  no_tests = true  # Não gera arquivos de teste
+  no_hooks = false # Mantém os hooks (Before/After Save)
+
+[aliases.tables.empresa]
+  up_plural   = "Empresas"  # Nome no plural em Go
+  up_singular = "Empresa"   # Nome no singular
